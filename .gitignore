@@ -1,30 +1,40 @@
-# System Files
+# 系統文件
 .DS_Store
 Thumbs.db
 
-# IDE Files
+# 編輯器配置
 .vscode/
 .idea/
-*.sublime-workspace
-*.sublime-project
+*.swp
+*.swo
 
-# Dependency directories
+# Node.js
 node_modules/
-jspm_packages/
-
-# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment files
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# 日誌文件
+*.log
+
+# 環境配置
 .env
 .env.local
 .env.*.local
 
-# Build files
-dist/
-build/
+# 備份文件
+*.bak
+*.backup
+*~
 
-# CSV files
-**/未來思考作業*.csv
+# 其他
+.tmp/
+.temp/
+*.cache

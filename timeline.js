@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const svg = d3.select('#timeline-svg');
     const width = svg.node().clientWidth;
     const height = svg.node().clientHeight;
-    const margin = { top: 60, right: 100, bottom: 50, left: 35 };
+    const margin = { top: 20, right: 100, bottom: 50, left: 35 };
     const titleOffset = 50;
     const timelineOffset = 150;
 
@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .range([height - margin.bottom, margin.top]);
 
     const colors = {
-        tech: '#FFE4E1',
-        economy: '#E1F0FF',
-        politics: '#E6E6FF',
-        society: '#E0FFE0',
-        environment: '#FFFACD',
-        education: '#FFE6E0'
+        tech: '#FFB6C1',
+        economy: '#87CEFA',
+        politics: '#B0B0FF',
+        society: '#90EE90',
+        environment: '#F0E68C',
+        education: '#FFA07A'
     };
 
     const categories = ['education', 'environment', 'society', 'politics', 'economy', 'tech'];
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr('y', yScale(categoryOffset[category] + 0.3))
             .attr('text-anchor', 'end')
             .attr('alignment-baseline', 'middle')
-            .style('font-size', '18px')
+            .style('font-size', '22px')
             .style('fill', '#333')
             .style('font-weight', 'bold')
             .text(category === 'tech' ? '科技' :

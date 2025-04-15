@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    if (!document.getElementById('v2').classList.contains('active')) return;
+    const v2Container = document.getElementById('v2');
+    if (!v2Container || !v2Container.classList.contains('active')) return;
 
     // Initialize tooltip managers
     const tooltipManager = new TooltipManager();
@@ -10,8 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize visualization
     const svg = d3.select('#timeline-svg-v2');
-    const width = svg.node().clientWidth;
-    const height = svg.node().clientHeight;
+    svg.selectAll("*").remove(); // Clear existing content
+
+    // Set SVG dimensions
+    const containerWidth = document.querySelector('#v2 .timeline-container').clientWidth;
+    const containerHeight = 800;
+    svg.attr('width', containerWidth)
+       .attr('height', containerHeight);
+
+    const width = containerWidth;
+    const height = containerHeight;
     const margin = { top: 60, right: 100, bottom: 50, left: 50 };
 
     // Create main time axis
@@ -69,8 +78,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Draw events for each period
         data.events.forEach(period => {
+            const periodStart = timeperiods.find(t => t.label === period.period).start;
             const periodGroup = categoryGroup.append('g')
                 .attr('class', 'period-events');
+
+            // Draw period background
+            periodGroup.append('rect')
+                .attr('x', timeScale(periodStart))
+                .attr('y', 0)
+                .attr('width', timeScale(periodStart + 10) - timeScale(periodStart))
+                .attr('height', categorySpacing)
+                .attr('fill', data.color)
+                .attr('opacity', 0.1);
 
             // Draw main events
             period.mainEvents.forEach(event => {
@@ -109,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add period background info
             const bgGroup = periodGroup.append('g')
                 .attr('class', 'period-bg-info')
-                .attr('transform', `translate(${timeScale(timeperiods.find(t => t.label === period.period).start)}, 0)`);
+                .attr('transform', `translate(${timeScale(periodStart)}, 0)`);
 
             bgGroup.append('text')
                 .attr('x', 5)
@@ -117,6 +136,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 .style('font-size', '10px')
                 .style('fill', '#999')
                 .text(`背景：${period.background}`);
+
+            // Add trends
+            const trendGroup = periodGroup.append('g')
+                .attr('class', 'period-trends')
+                .attr('transform', `translate(${timeScale(periodStart)}, ${categorySpacing - 25})`);
+
+            period.trends.forEach((trend, i) => {
+                trendGroup.append('text')
+                    .attr('x', 5)
+                    .attr('y', i * 15)
+                    .style('font-size', '10px')
+                    .style('fill', '#666')
+                    .text(`• ${trend}`);
+            });
         });
     });
 });

@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     const colors = {
-        tech: '#cce5ff',
-        economy: '#c2e0c6',
-        politics: '#e6e6fa',
-        society: '#ffe4c4',
-        environment: '#ffc0cb',
-        education: '#fff2cc'
+        tech: '#FFB6C1',
+        economy: '#87CEFA',
+        politics: '#B0B0FF',
+        society: '#90EE90',
+        environment: '#F0E68C',
+        education: '#FFA07A'
     };
 
     // Draw grid

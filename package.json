@@ -1,0 +1,32 @@
+{
+  "name": "taiwan-timeline-visualization",
+  "version": "1.1.0",
+  "description": "台灣發展時間軸視覺化專案 (1965-2025)",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "dev": "live-server",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "vercel": "^32.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glen200392/taiwan-timeline-visualization.git"
+  },
+  "keywords": [
+    "taiwan",
+    "timeline",
+    "visualization",
+    "d3js",
+    "miro"
+  ],
+  "author": "glen200392",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glen200392/taiwan-timeline-visualization/issues"
+  },
+  "homepage": "https://glen200392.github.io/taiwan-timeline-visualization"
+}
