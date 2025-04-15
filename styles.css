@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft JhengHei', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    background: #333;
+    color: #fff;
+}
+
+/* Legend styles */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.legend-item.disabled {
+    opacity: 0.5;
+}
+
+.legend-item span {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Category colors */
+.legend-item.tech span { background-color: #cce5ff; }
+.legend-item.economy span { background-color: #c2e0c6; }
+.legend-item.politics span { background-color: #e6e6fa; }
+.legend-item.society span { background-color: #ffe4c4; }
+.legend-item.environment span { background-color: #ffc0cb; }
+.legend-item.education span { background-color: #fff2cc; }
+
+/* Container styles */
+.timeline-container, .relationships-container {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#timeline-svg, #relationships-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Enhanced tooltip styles */
+.tooltip, .trend-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    max-width: 300px;
+    font-size: 13px;
+    line-height: 1.5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition-property: opacity;
+    transition-duration: 0.1s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tooltip.visible, .trend-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip strong, .trend-tooltip strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-size: 14px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+}
+
+.tooltip strong:not(:first-child) {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+    border-bottom: none;
+    padding-bottom: 2px;
+}
+
+/* Node and trend styles */
+.node {
+    cursor: pointer;
+}
+
+.node:hover {
+    opacity: 0.8;
+}
+
+.line {
+    stroke-width: 2.5;
+}
+
+.trend-icon {
+    cursor: pointer;
+}
+
+.trend-label-group {
+    pointer-events: none;
+    user-select: none;
+}
+
+.trend-label-group .label-bg {
+    fill: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.trend-label-group text {
+    fill: #333;
+    font-weight: 500;
+    text-shadow: 
+        0 1px 0 #fff,
+        1px 0 0 #fff,
+        -1px 0 0 #fff,
+        0 -1px 0 #fff;
+}
+
+/* Relationship diagram specific styles */
+.relationships-container {
+    position: relative;
+    height: 800px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#relationships-svg {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#relationships-svg:active {
+    cursor: grabbing;
+}
+
+.node-group text {
+    fill: #333;
+    font-weight: 500;
+    pointer-events: none;
+    user-select: none;
+}
+
+.text-bg {
+    fill: rgba(255, 255, 255, 0.95);
+    stroke: rgba(0, 0, 0, 0.05);
+    stroke-width: 1;
+    pointer-events: none;
+}
+
+.link {
+    mix-blend-mode: multiply;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+/* Prevent text selection */
+.node-group text,
+.trend-label-group text,
+.period-label,
+.category-label {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@media print {
+    .nav-links {
+        display: none;
+    }
+    
+    .timeline-container {
+        box-shadow: none;
+        border: 1px solid #eee;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣發展關聯圖 (1965-2025)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>台灣發展關聯圖 (1965-2025)</h1>
+            <div class="nav-links">
+                <a href="index.html">時間軸檢視</a>
+                <a href="relationships.html" class="active">關聯圖檢視</a>
+            </div>
+        </div>
+
+        <div class="relationships-container">
+            <svg id="relationships-svg"></svg>
+            <div id="tooltip" class="tooltip" role="tooltip"></div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="tooltipManager.js"></script>
+    <script src="data.js"></script>
+    <script src="relationship.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣發展時間軸 (1965-2025)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>台灣發展時間軸 (1965-2025)</h1>
+            <div class="nav-links">
+                <a href="index.html" class="active">時間軸檢視</a>
+                <a href="relationships.html">關聯圖檢視</a>
+            </div>
+        </div>
+
+        <div class="timeline-controls">
+            <div class="legend">
+                <div class="legend-item tech"><span></span>科技發展</div>
+                <div class="legend-item economy"><span></span>經濟發展</div>
+                <div class="legend-item politics"><span></span>政治發展</div>
+                <div class="legend-item society"><span></span>社會發展</div>
+                <div class="legend-item environment"><span></span>環境發展</div>
+                <div class="legend-item education"><span></span>教育發展</div>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <svg id="timeline-svg"></svg>
+            <div id="tooltip" class="tooltip" role="tooltip"></div>
+            <div id="trend-tooltip" class="trend-tooltip" role="tooltip"></div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="tooltipManager.js"></script>
+    <script src="data.js"></script>
+    <script src="timeline.js"></script>
+</body>
+</html>
