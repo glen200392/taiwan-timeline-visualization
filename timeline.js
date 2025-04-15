@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const width = svg.node().clientWidth;
     const height = svg.node().clientHeight;
     const margin = { top: 60, right: 100, bottom: 50, left: 35 };
-    const titleOffset = 50; // Extra space for the title
-    const timelineOffset = 150; // Extra space for timeline start
+    const titleOffset = 50;
+    const timelineOffset = 150;
 
     // Create scales
     const xScale = d3.scalePoint()
@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .range([height - margin.bottom, margin.top]);
 
     const colors = {
-        tech: '#cce5ff',
-        economy: '#c2e0c6',
-        politics: '#e6e6fa',
-        society: '#ffe4c4',
-        environment: '#ffc0cb',
-        education: '#fff2cc'
+        tech: '#FFE4E1',
+        economy: '#E1F0FF',
+        politics: '#E6E6FF',
+        society: '#E0FFE0',
+        environment: '#FFFACD',
+        education: '#FFE6E0'
     };
 
     const categories = ['education', 'environment', 'society', 'politics', 'economy', 'tech'];
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add permanent trend label
             const labelGroup = categoryGroup.append('g')
                 .attr('class', 'trend-label-group')
-                .attr('transform', `translate(${x}, ${y - 25})`);
+                .attr('transform', `translate(${x}, ${y - 30})`);
 
             // Add label background
             labelGroup.append('rect')
@@ -78,21 +78,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 .attr('stroke-width', 1)
                 .attr('opacity', 0.9);
 
-            // Add text
-            const labelText = labelGroup.append('text')
+            // Add main title
+            const titleText = labelGroup.append('text')
                 .attr('text-anchor', 'middle')
-                .attr('dy', '0.35em')
-                .attr('fill', '#666')
-                .style('font-size', '11px')
+                .attr('dy', '-0.2em')
+                .attr('fill', '#333')
+                .style('font-size', '12px')
+                .style('font-weight', 'bold')
                 .text(d.title);
 
-            // Adjust background size
-            const bbox = labelText.node().getBBox();
+            // Add subtitle
+            const subtitleText = labelGroup.append('text')
+                .attr('text-anchor', 'middle')
+                .attr('dy', '1em')
+                .attr('fill', '#666')
+                .style('font-size', '10px')
+                .text(d.subtitle.join(' · '));
+
+            // Adjust background size for both texts
+            const titleBox = titleText.node().getBBox();
+            const subtitleBox = subtitleText.node().getBBox();
+            const totalWidth = Math.max(titleBox.width, subtitleBox.width);
+            const totalHeight = titleBox.height + subtitleBox.height;
+
             labelGroup.select('.label-bg')
-                .attr('x', bbox.x - 4)
-                .attr('y', bbox.y - 2)
-                .attr('width', bbox.width + 8)
-                .attr('height', bbox.height + 4);
+                .attr('x', -totalWidth/2 - 4)
+                .attr('y', titleBox.y - 2)
+                .attr('width', totalWidth + 8)
+                .attr('height', totalHeight + 8);
 
             // Add trend indicator
             if (i < data.length - 1) {
