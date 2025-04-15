@@ -221,3 +221,43 @@ const timelineData = {
         ], level: 5, trend: "數位創新教育，學習模式轉型" }
     ]
 };
+
+const connections = [
+    // 科技影響經濟
+    { from: "tech-1965-1975", to: "economy-1965-1975", type: "工研院成立帶動產業技術升級", level: 2 },
+    { from: "tech-1976-1985", to: "economy-1976-1985", type: "科學園區成立促進高科技產業發展", level: 3 },
+    { from: "tech-1986-1995", to: "economy-1986-1995", type: "晶圓代工模式帶動經濟轉型", level: 3 },
+    { from: "tech-1996-2005", to: "economy-1996-2005", type: "數位革命促進產業升級", level: 2 },
+    { from: "tech-2006-2015", to: "economy-2006-2015", type: "智慧科技推動創新經濟", level: 3 },
+    { from: "tech-2016-2025", to: "economy-2016-2025", type: "AI與半導體推動數位經濟", level: 4 },
+
+    // 政治影響社會
+    { from: "politics-1965-1975", to: "society-1965-1975", type: "威權統治影響社會發展", level: 2 },
+    { from: "politics-1976-1985", to: "society-1976-1985", type: "政治解放促進社會運動", level: 3 },
+    { from: "politics-1986-1995", to: "society-1986-1995", type: "解嚴帶動公民社會發展", level: 4 },
+    { from: "politics-1996-2005", to: "society-1996-2005", type: "民主化深化公民參與", level: 3 },
+    { from: "politics-2006-2015", to: "society-2006-2015", type: "公民運動影響社會發展", level: 4 },
+    { from: "politics-2016-2025", to: "society-2016-2025", type: "民主價值形塑智慧社會", level: 3 },
+
+    // 社會影響教育
+    { from: "society-1965-1975", to: "education-1965-1975", type: "工業化推動技職教育", level: 2 },
+    { from: "society-1976-1985", to: "education-1976-1985", type: "社會變遷促進教育多元化", level: 3 },
+    { from: "society-1986-1995", to: "education-1986-1995", type: "公民社會推動教改", level: 4 },
+    { from: "society-1996-2005", to: "education-1996-2005", type: "數位社會影響教育創新", level: 3 },
+    { from: "society-2006-2015", to: "education-2006-2015", type: "網路社會推動教育轉型", level: 4 },
+    { from: "society-2016-2025", to: "education-2016-2025", type: "智慧社會促進數位學習", level: 4 },
+
+    // 經濟影響環境
+    { from: "economy-1965-1975", to: "environment-1965-1975", type: "工業發展造成環境污染", level: 2 },
+    { from: "economy-1976-1985", to: "environment-1976-1985", type: "經濟發展引發能源爭議", level: 3 },
+    { from: "economy-1986-1995", to: "environment-1986-1995", type: "產業發展促進環保制度", level: 3 },
+    { from: "economy-1996-2005", to: "environment-1996-2005", type: "經濟轉型推動永續發展", level: 3 },
+    { from: "economy-2006-2015", to: "environment-2006-2015", type: "產業升級帶動環保意識", level: 4 },
+    { from: "economy-2016-2025", to: "environment-2016-2025", type: "數位經濟助力淨零轉型", level: 4 },
+
+    // 環境影響科技
+    { from: "environment-1986-1995", to: "tech-1986-1995", type: "環保需求推動技術創新", level: 2 },
+    { from: "environment-1996-2005", to: "tech-1996-2005", type: "永續發展促進綠能科技", level: 3 },
+    { from: "environment-2006-2015", to: "tech-2006-2015", type: "氣候變遷推動智慧科技", level: 3 },
+    { from: "environment-2016-2025", to: "tech-2016-2025", type: "淨零目標帶動創新研發", level: 4 }
+];
