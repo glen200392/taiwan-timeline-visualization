@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const svg = d3.select('#timeline-svg');
     const width = svg.node().clientWidth;
     const height = svg.node().clientHeight;
-    const margin = { top: 60, right: 100, bottom: 50, left: 50 };
+    const margin = { top: 60, right: 100, bottom: 50, left: 35 };
     const titleOffset = 50; // Extra space for the title
     const timelineOffset = 150; // Extra space for timeline start
 
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr('y', yScale(categoryOffset[category] + 0.3))
             .attr('text-anchor', 'end')
             .attr('alignment-baseline', 'middle')
-            .style('font-size', '14px')
+            .style('font-size', '18px')
             .style('fill', '#333')
             .style('font-weight', 'bold')
             .text(category === 'tech' ? '科技' :
