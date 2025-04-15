@@ -11,11 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const width = svg.node().clientWidth;
     const height = svg.node().clientHeight;
     const margin = { top: 60, right: 100, bottom: 50, left: 50 };
+    const titleOffset = 50; // Extra space for the title
+    const timelineOffset = 150; // Extra space for timeline start
 
     // Create scales
     const xScale = d3.scalePoint()
         .domain(["1965-1975", "1976-1985", "1986-1995", "1996-2005", "2006-2015", "2016-2025"])
-        .range([margin.left + 100, width - margin.right]); // Add extra spacing after the title
+        .range([margin.left + timelineOffset, width - margin.right]);
 
     const yScale = d3.scaleLinear()
         .domain([0, 7])
@@ -153,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Add category labels
         categoryGroup.append('text')
-            .attr('x', margin.left - 15)
+            .attr('x', margin.left + titleOffset)
             .attr('y', yScale(categoryOffset[category] + 0.3))
             .attr('text-anchor', 'end')
             .attr('alignment-baseline', 'middle')
