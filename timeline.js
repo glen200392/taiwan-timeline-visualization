@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const svg = d3.select('#timeline-svg');
     const width = svg.node().clientWidth;
     const height = svg.node().clientHeight;
-    const margin = { top: 60, right: 100, bottom: 50, left: 120 };
+    const margin = { top: 60, right: 100, bottom: 50, left: 150 };
 
     // Create scales
     const xScale = d3.scalePoint()
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         education: '#fff2cc'
     };
 
-    const categories = ['tech', 'economy', 'politics', 'society', 'environment', 'education'];
+    const categories = ['education', 'environment', 'society', 'politics', 'economy', 'tech'];
     const categorySpacing = 1.1;
     const categoryOffset = {};
     categories.forEach((cat, index) => {
