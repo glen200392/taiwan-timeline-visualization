@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const svg = d3.select('#timeline-svg');
     const width = svg.node().clientWidth;
     const height = svg.node().clientHeight;
-    const margin = { top: 60, right: 100, bottom: 50, left: 150 };
+    const margin = { top: 60, right: 100, bottom: 50, left: 50 };
 
     // Create scales
     const xScale = d3.scalePoint()
         .domain(["1965-1975", "1976-1985", "1986-1995", "1996-2005", "2006-2015", "2016-2025"])
-        .range([margin.left, width - margin.right]);
+        .range([margin.left + 100, width - margin.right]); // Add extra spacing after the title
 
     const yScale = d3.scaleLinear()
         .domain([0, 7])
